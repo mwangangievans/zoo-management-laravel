@@ -11,6 +11,7 @@
               <div class="row">
                 @foreach ( $animals as $animal)
             <div class="col-md-4">
+              <h1>
                 <div class="image-container">
             <img src="/storage/image/{{$animal->image}}" alt="Animal picture" class="centered-image">
             
@@ -22,7 +23,7 @@
             
                 <p class="description">{{$animal->description}}</p>
                 <hr><div class="edit"><button>edit</button> <button>delete</button></div>
-          </div>   
+          </div>  </h1> 
                       @endforeach
                     </div>
 

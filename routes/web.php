@@ -29,6 +29,9 @@ Route::resource('/categories', 'CategoryController');
 
 Route::resource('/animals','AnimalController');
 
+Route::resource('/bookings','BookingController');
+
+
 
 Route::resource('/roles', 'RoleController');
 

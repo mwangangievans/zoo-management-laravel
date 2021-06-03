@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class AnimalController extends Controller
 {
     public function index()
-    {
+    { 
+        // return (auth()->user()->id);
          $animals = Animal::orderby('id', 'desc')->paginate(10);
         return view('animal.index', compact('animals'));
     }
@@ -72,7 +73,7 @@ class AnimalController extends Controller
         $animal->description = $request->input('description');
         $animal->image = $request->input('image');
         $animal->save();
-        return redirect()->route('animals.index')->with('flash_message', 'Animal,'. $animal->name.' created');
+        return redirect()->route('animals.index')->with('flash_message', 'Animal,'. $animal->name.' updated');
     }
     public function destroy($id)
     {
