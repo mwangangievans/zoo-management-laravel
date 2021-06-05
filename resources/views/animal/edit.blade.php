@@ -10,7 +10,7 @@
     <hr>
 
     {{-- @include ('errors.list') --}}
-    <form method="PUT" action="{{ route('animals.update', $animal->id) }}"  enctype="multipart/form-data" >   
+    <form method="PUT" action="{{ route('animals.update',$animal->id) }}"  enctype="multipart/form-data" >   
 
              <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div>

@@ -18,17 +18,13 @@ class BookingController extends Controller
      */
     public function index()
     {
-     
         
     $user = Auth::user();
-    
-    // if(count ($user->booking)>0){
+   
+      
     return view('booking.index')->with('user',$user);
-    // }
-    // else
-    // {
-    //     return "no recent bookings";
-    // }
+
+  
 
     }
 
@@ -52,7 +48,6 @@ class BookingController extends Controller
     public function store(Request $request )
     {
     //    dd( Auth::User()->id);
-        
 
          $this->validate($request, [
             // 'user_id'         => 'required|numeric',
@@ -80,16 +75,26 @@ class BookingController extends Controller
         // return "Today is " . date("Y-m-d");
 
         $booking  = new Booking();
+        $date3=date_create($request->input('check_in'));
+        $date2=date_create($request->input('check_out'));
+        $diff=date_diff($date3,$date2);
+        $day = substr($diff->format("%R%a "),1);
+
         $booking->user_id = Auth::User()->id;
         $booking ->phone =$request->input('phone');
         $booking ->gender =$request->input('gender');
         $booking ->age =$request->input('age');
         $booking ->check_in=$request->input('check_in');
         $booking ->check_out=$request->input('check_out');
+        $booking-> Duration = $day;
+
+                // return $day;
+
         $booking->save();
 
-         return redirect()->route('bookings.index')->with('flash_message','days','ticket created successfully',$days);
+         return redirect()->route('bookings.index')->with('flash_message','ticket created successfully');
     }
+
 
     /**
      * Display the specified resource.
@@ -109,7 +114,8 @@ class BookingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    { 
+        
            $booking = Booking::findOrFail($id);
 
         return view('booking.edit', compact('booking'));
@@ -123,10 +129,13 @@ class BookingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-         $booking = Booking::findOrFail($id);
+    { 
+        // return $id;
+        //$users = User::where('status', 'VIP')->get();
+        $booking = Booking::where('id', $id)->first(); //where user_id = $id
+        // return $booking;
         $this->validate($request, [
-            'user_id'         => 'required|numeric',
+            // 'user_id'         => 'required|numeric',
             'phone'           => 'required|string|max:255',
             'gender'          => 'required|string|max:255',
             'age'              => 'required|string|max:255',
@@ -134,13 +143,21 @@ class BookingController extends Controller
             'check_out'       => 'required|date'
         ]);
 
-        $input = $request->only(['user_id', 'phone', 'gender','age','check_in','check_out']);
-        $booking->fill($input)->save();
+        // $input = $request->only(['user_id', 'phone', 'gender','age','check_in','check_out']);
+        // $booking->fill($input)->save();
+        // $booking->user_id = $id;
+        $booking->phone = $request->input('phone');
+        $booking->gender = $request->input('gender');
+        $booking->age = $request->input('age');
+        $booking->check_in = $request->input('check_in');
+        $booking->check_out = $request->input('check_out');
+        $booking->Duration =  $this->dateDiff($request->input('check_in'),$request->input('check_out'));
+        $booking->save();
 
       
         return redirect()->route('bookings.index')
             ->with('flash_message',
-             'ticket successfully updated.');
+             'booking successfully updated.');
     }
 
     /**
@@ -150,12 +167,27 @@ class BookingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-         $booking = Booking::findOrFail($id);
+    { 
+        // return $id;
+          $booking = Booking::findOrFail($id);
+        //   return $booking;
         $booking->delete();
+
+        //  $booking =  Booking::where('id', $id)->first();
+        // $booking->delete();
 
         return redirect()->route('bookings.index')
             ->with('flash_message',
              'ticket successfully deleted.');
     }
+
+    private function dateDiff($start, $end){
+        $date3=date_create($start);
+        $date2=date_create($end);
+        $diff=date_diff($date3,$date2);
+        $days = substr($diff->format("%R%a "),1);
+        return $days;
+    }
+
+
 }

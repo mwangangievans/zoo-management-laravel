@@ -105,6 +105,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //  return $id;
+         
         $user = User::findOrFail($id);
         $this->validate($request, [
             'name'=>'required|max:120',

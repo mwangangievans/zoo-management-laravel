@@ -9,7 +9,7 @@
     <a href="{{ route('permissions.index') }}" class="btn btn-default pull-right">Permissions</a></h1>
     <hr>
     <div class="table-responsive">
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped" id="example">
 
             <thead>
                 <tr>
@@ -46,8 +46,13 @@
         </table>
     </div>
 
-    <a href="{{ route('users.create') }}" class="btn btn-success">Add User</a>
+
+
+    
+   
 
 </div>
+<button class="btn btn-primary"></button>
+    
 
 @endsection

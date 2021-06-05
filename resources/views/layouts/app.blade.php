@@ -22,7 +22,7 @@
 
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles1.css') }}" rel="stylesheet">
-
+ 
 
 
   
