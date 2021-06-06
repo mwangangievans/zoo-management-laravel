@@ -16,7 +16,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Date/Time Added</th>
+                    <th>Date added</th>
                     <th>User Roles</th>
                     <th>Operations</th>
                 </tr>
@@ -28,7 +28,7 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->created_at->format('F d, Y h:ia') }}</td>
+                    <td>{{ $user->created_at->format('Y-m-d') }}</td>
                     <td>{{  $user->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
 
                     <td>
