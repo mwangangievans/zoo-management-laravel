@@ -12,7 +12,7 @@
         <table class="table table-bordered table-striped" id="example">
 
             <thead>
-                <tr>
+                <tr  class="wildlifeme">
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>

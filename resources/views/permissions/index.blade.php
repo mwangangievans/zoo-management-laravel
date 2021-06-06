@@ -11,17 +11,19 @@
     <a href="{{ route('roles.index') }}" class="btn btn-default pull-right">Roles</a></h1>
     <hr>
     <div class="table-responsive">
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped" id="example">
 
             <thead>
-                <tr>
+                <tr class="wildlifeme">
+                    <th>ID</th>
                     <th>Permissions</th>
                     <th>Operation</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($permissions as $permission)
-                <tr>
+                <tr  >
+                    <td>{{ $permission->id }}</td> 
                     <td>{{ $permission->name }}</td> 
                     <td>
                     <a href="{{ URL::to('permissions/'.$permission->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
