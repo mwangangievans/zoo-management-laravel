@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-        <title>Discover-Wildlife</title>
+        <title>BIG-LIFE-ZOO</title>
 
 
     <!-- Styles -->
@@ -18,10 +18,12 @@
       type="text/css"
       href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css"
     />
+        {{-- <link href="{{ asset('css/welcome.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles1.css') }}" rel="stylesheet">
+
  
 
 
@@ -61,7 +63,7 @@
                 <li><img src="{{url('/image/lion1.webp')}}" height="70px" class="muinde" width="100px" alt="Image"/>
 </li>
 
-                        <li><a href="{{ url('/home') }}"><h4 class="discover">DiscoverWildlife</h4></a></li>
+                        <li><a href="{{ url('/') }}"><h4 class="discover">BIG-LIFE-ZOO</h4></a></li>
                      @role('Admin')
 
                         @if (!Auth::guest())
@@ -140,6 +142,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/welcome.js') }}"></script>
+
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

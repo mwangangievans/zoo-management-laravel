@@ -1,5 +1,5 @@
 .container-nav {
-    background-color: #003153;
+    background-color: #222;
 }
 
 .discover {
@@ -123,6 +123,11 @@ body {
 .line {
     background-color: rgb(0, 255, 64);
     height: 10px;
+}
+
+.addAnimal {
+    padding: 30px;
+    border-radius: 20px;
 }
 
 .visit {

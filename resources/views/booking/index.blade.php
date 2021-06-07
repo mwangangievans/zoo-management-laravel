@@ -86,6 +86,7 @@
         <table id="example" class="table table-bordered table-striped">
             <thead>
                 <tr class="wildlifeme">
+                    <th>User Name</th>
                     <th >Check in</th>
                     <th >Check out</th>
                     <th >phone</th>
@@ -98,7 +99,7 @@
             <tbody>
                 @if (count($user->booking) > 0)
                     @foreach ($user->booking as $booking)
-                        <tr>
+                        <tr><td>{{$booking->userBooking->name}}</td>
                             <td >{{ $booking->check_in }}</td>
                             <td>{{ $booking->check_out}}</td>
                             <td>{{$booking->phone }}</td>

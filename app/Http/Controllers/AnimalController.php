@@ -11,8 +11,12 @@ class AnimalController extends Controller
     public function index()
     { 
         // return (auth()->user()->id);
+             $categories = Category::all();
+
+        $name = auth()->user()->name;
+
          $animals = Animal::orderby('id', 'desc')->paginate(10);
-        return view('animal.index', compact('animals'));
+        return view('animal.index1', compact('animals','name','categories'));
     }
     public function create()
     {
@@ -63,15 +67,35 @@ class AnimalController extends Controller
     {
         $this->validate($request, [
             'name'=>'required|max:100',
-            'category_id'=>'required|max:100',
-            'description'=>'required|max:100',
+            // 'category_id'=>'required|max:100',
+            'description'=>'required|max:5000',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1999',
                     ]);
         $animal = Animal::findOrFail($id);
         $animal->name = $request->input('name');
         $animal->category_id = $request->input('category_id');
         $animal->description = $request->input('description');
-        $animal->image = $request->input('image');
+        
+    //  $employee = Employee::find($id);
+
+     if($request->file != ''){        
+          $path = public_path().'/storage/image/';
+
+          //code for remove old file
+          if($animal->file != ''  && $animal->file != null){
+               $file_old = $path.$animal->file;
+               unlink($file_old);
+          }
+
+          //upload new file
+          $file = $request->file;
+          $filename = $file->getClientOriginalName();
+          $file->move($path, $filename);
+
+          //for update in table
+          $animal->update(['file' => $filename]);
+     }
+        // $animal->image = $request->input('image');
         $animal->save();
         return redirect()->route('animals.index')->with('flash_message', 'Animal,'. $animal->name.' updated');
     }

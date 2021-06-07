@@ -21,7 +21,7 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index');
 //
-Route::get('/home', 'PostController@index')->name('home');
+Route::resource('/bookings','BookingController');
 
 Route::resource('/users', 'UserController');
 
@@ -29,7 +29,6 @@ Route::resource('/categories', 'CategoryController');
 
 Route::resource('/animals','AnimalController');
 
-Route::resource('/bookings','BookingController');
 
 
 
