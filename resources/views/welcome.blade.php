@@ -22,8 +22,17 @@
 
     <div class="hero">
       <div class="container">
-        <h1>Welcome To Big Life Zoo</h1>
-        <p class="qoute">“If we can teach people about wildlife, they will be touched. Share my wildlife with me. Because humans want to save things that they love.”</p>
+            <div class="animal">
+              <a href="/login"><img src="https://images.pexels.com/photos/3284299/pexels-photo-3284299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="lion" ></a>
+              <a href=""><img src="https://images.pexels.com/photos/6436686/pexels-photo-6436686.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="buffalo" ></a>
+            <a href=""><img src="https://images.pexels.com/photos/6947820/pexels-photo-6947820.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="lion" ></a>
+             <a href=""><img src="https://images.pexels.com/photos/6551938/pexels-photo-6551938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="lion" ></a>
+              <a href="">  <img src="https://images.pexels.com/photos/39857/leopard-leopard-spots-animal-wild-39857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="leopard" ></a>
+             </div>
+         
+<div class="five"> <h1>Welcome To <span class="life">Big-Life-Zoo</span> The Home of the  big <span class="life">5</span></h1>
+        <p class="qoute">“If we can teach people about wildlife, they will be touched. Share my wildlife with me. Because humans want to save things that they love.”</p></div>
+       
       </div>
     </div>
 

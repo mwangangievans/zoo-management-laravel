@@ -60,8 +60,8 @@
                     <!-- Left Side Of Navbar -->
 
                     <ul class="nav navbar-nav">
-                <li><img src="{{url('/image/lion1.webp')}}" height="70px" class="muinde" width="100px" alt="Image"/>
-</li>
+                {{-- <li><img src="{{url('/image/lion1.webp')}}" height="70px" class="muinde" width="100px" alt="Image"/>
+</li> --}}
 
                         <li><a href="{{ url('/') }}"><h4 class="discover">BIG-LIFE-ZOO</h4></a></li>
                      @role('Admin')
